@@ -8,6 +8,12 @@ class RecordViewController: UIViewController, PlayerDelegate, RecorderDelegate {
     @IBOutlet weak var elapsedTimeLabel: UILabel!
     @IBOutlet weak var remainingTimeLabel: UILabel!
     @IBOutlet weak var timerSlider: UISlider!
+   
+    private let player = Player()
+    private let recorder = Recorder()
+    
+    var postController: PostController!
+    var post: Post!
     
     private lazy var timeFormatter: DateComponentsFormatter = {
         let f = DateComponentsFormatter()
@@ -16,10 +22,7 @@ class RecordViewController: UIViewController, PlayerDelegate, RecorderDelegate {
         f.allowedUnits = [.minute, .second]
         return f
     }()
-    
-    private let player = Player()
-    private let recorder = Recorder()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,6 +66,8 @@ class RecordViewController: UIViewController, PlayerDelegate, RecorderDelegate {
     
     @IBAction func addCommentButton(_ sender: Any) {
         
+        // Save the comment here
+        postController.addAudioComment(with: recorder.currentFile!, to: post)
         
         navigationController?.popViewController(animated: true)
     }
@@ -70,5 +75,8 @@ class RecordViewController: UIViewController, PlayerDelegate, RecorderDelegate {
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
+    
 }
 
