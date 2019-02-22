@@ -8,12 +8,13 @@ class RecordViewController: UIViewController, PlayerDelegate, RecorderDelegate {
     @IBOutlet weak var elapsedTimeLabel: UILabel!
     @IBOutlet weak var remainingTimeLabel: UILabel!
     @IBOutlet weak var timerSlider: UISlider!
-   
+    @IBOutlet weak var titleTextField: UITextField!
+    
     private let player = Player()
     private let recorder = Recorder()
     
-    var postController: PostController!
-    var post: Post!
+    var postController = PostController()
+    var post: Post?
     
     private lazy var timeFormatter: DateComponentsFormatter = {
         let f = DateComponentsFormatter()
@@ -67,7 +68,29 @@ class RecordViewController: UIViewController, PlayerDelegate, RecorderDelegate {
     @IBAction func addCommentButton(_ sender: Any) {
         
         // Save the comment here
-        postController.addAudioComment(with: recorder.currentFile!, to: post)
+        guard let audioURL = recorder.currentFile else { return }
+        
+        let title = titleTextField.text
+        
+        //let audioURLString = audioURL.absoluteString
+        
+//        postController.addAudioComment(with: title ?? "", audioURL: audioURL, to: post)
+        
+        let audioURLData = try! Data(contentsOf: audioURL)
+        
+        self.postController.store(mediaData: audioURLData, mediaType: .audio) { (url) in
+            guard let url = url else { return }
+            
+            // Add the comment to firebase w/ reference to ...
+           self.postController.addAudioComment(with: title ?? "", audioURL: url, to: self.post!)
+            
+            DispatchQueue.main.async {
+                
+                self.dismiss(animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
+                
+            }
+        }
         
         navigationController?.popViewController(animated: true)
     }

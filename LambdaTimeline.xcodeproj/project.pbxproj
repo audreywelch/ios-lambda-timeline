@@ -29,6 +29,7 @@
 		46D571F32172D43B00E7FF73 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D571F22172D43B00E7FF73 /* Cache.swift */; };
 		46D571F52173CF3E00E7FF73 /* UIImage+Ratio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D571F42173CF3E00E7FF73 /* UIImage+Ratio.swift */; };
 		46D571F82173FC2700E7FF73 /* ImagePostDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D571F72173FC2700E7FF73 /* ImagePostDetailTableViewController.swift */; };
+		845AF328221F54B000F9D1BC /* GeoTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845AF327221F54B000F9D1BC /* GeoTagsViewController.swift */; };
 		84B1A355221CC2C80016D075 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1A354221CC2C80016D075 /* RecordViewController.swift */; };
 		84B1A357221CCE6B0016D075 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1A356221CCE6B0016D075 /* Recorder.swift */; };
 		84B1A359221CCE720016D075 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1A358221CCE720016D075 /* Player.swift */; };
@@ -67,6 +68,7 @@
 		46D571F42173CF3E00E7FF73 /* UIImage+Ratio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ratio.swift"; sourceTree = "<group>"; };
 		46D571F72173FC2700E7FF73 /* ImagePostDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePostDetailTableViewController.swift; sourceTree = "<group>"; };
 		5D2CCD6C68779B0A70AC37FA /* Pods-LambdaTimeline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LambdaTimeline.release.xcconfig"; path = "Pods/Target Support Files/Pods-LambdaTimeline/Pods-LambdaTimeline.release.xcconfig"; sourceTree = "<group>"; };
+		845AF327221F54B000F9D1BC /* GeoTagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoTagsViewController.swift; sourceTree = "<group>"; };
 		84B1A354221CC2C80016D075 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		84B1A356221CCE6B0016D075 /* Recorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
 		84B1A358221CCE720016D075 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				46D571F72173FC2700E7FF73 /* ImagePostDetailTableViewController.swift */,
 				84B1A354221CC2C80016D075 /* RecordViewController.swift */,
 				84B1A3A6221E1BB90016D075 /* CameraViewController.swift */,
+				845AF327221F54B000F9D1BC /* GeoTagsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				46CFE6FD217154F500E7FF73 /* Networking.swift in Sources */,
 				46CFE6F521707D0000E7FF73 /* ImagePostViewController.swift in Sources */,
 				46CFE6FF2171556D00E7FF73 /* ConcurrentOperation.swift in Sources */,
+				845AF328221F54B000F9D1BC /* GeoTagsViewController.swift in Sources */,
 				84B1A355221CC2C80016D075 /* RecordViewController.swift in Sources */,
 				46463790216FFD1B00E7FF73 /* Post.swift in Sources */,
 				46CFE6F32170757F00E7FF73 /* User+DictionaryRepresentation.swift in Sources */,

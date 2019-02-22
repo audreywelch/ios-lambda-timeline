@@ -1,10 +1,3 @@
-//
-//  PostController.swift
-//  LambdaTimeline
-//
-//  Created by Spencer Curtis on 10/11/18.
-//  Copyright © 2018 Lambda School. All rights reserved.
-//
 
 import Foundation
 import FirebaseAuth
@@ -22,7 +15,8 @@ class PostController {
             
             guard let mediaURL = mediaURL else { completion(false); return }
             
-            let imagePost = Post(title: title, mediaURL: mediaURL, ratio: ratio, author: author)
+            //let imagePost = Post(title: title, mediaURL: mediaURL, ratio: ratio, author: author)
+            let imagePost = Post(title: title, mediaURL: mediaURL, ratio: ratio, author: author, geotag: nil)
             
             self.postsRef.childByAutoId().setValue(imagePost.dictionaryRepresentation) { (error, ref) in
                 if let error = error {
@@ -46,12 +40,12 @@ class PostController {
         savePostToFirebase(post)
     }
     
-    func addAudioComment(with audioURL: URL, to post: Post) {
+    func addAudioComment(with text: String, audioURL: URL, to post: Post) {
         
         guard let currentUser = Auth.auth().currentUser,
             let author = Author(user: currentUser) else { return }
         
-        let audioComment = Comment(text: nil, audioURL: audioURL, author: author)
+        let audioComment = Comment(text: text, audioURL: audioURL, author: author)
         post.comments.append(audioComment)
         
         savePostToFirebase(post)
@@ -90,7 +84,7 @@ class PostController {
         ref.setValue(post.dictionaryRepresentation)
     }
 
-    private func store(mediaData: Data, mediaType: MediaType, completion: @escaping (URL?) -> Void) {
+    func store(mediaData: Data, mediaType: MediaType, completion: @escaping (URL?) -> Void) {
         
         let mediaID = UUID().uuidString
         

@@ -1,27 +1,24 @@
-//
-//  Post.swift
-//  LambdaTimeline
-//
-//  Created by Spencer Curtis on 10/11/18.
-//  Copyright © 2018 Lambda School. All rights reserved.
-//
 
 import Foundation
 import FirebaseAuth
+import MapKit
 
 enum MediaType: String {
     case image
+    case audio
 }
 
 class Post {
     
-    init(title: String, mediaURL: URL, ratio: CGFloat? = nil, author: Author, timestamp: Date = Date()) {
+    init(title: String, mediaURL: URL, ratio: CGFloat? = nil, author: Author, geotag: CLLocationCoordinate2D?, timestamp: Date = Date()) {
         self.mediaURL = mediaURL
         self.ratio = ratio
         self.mediaType = .image
         self.author = author
-        self.comments = [Comment(text: title, author: author)]
+        self.comments = [Comment(text: title, audioURL: nil, author: author)]
+        self.geotag = geotag
         self.timestamp = timestamp
+        
     }
     
     init?(dictionary: [String : Any], id: String) {
@@ -34,6 +31,17 @@ class Post {
             let timestampTimeInterval = dictionary[Post.timestampKey] as? TimeInterval,
             let captionDictionaries = dictionary[Post.commentsKey] as? [[String: Any]] else { return nil }
         
+        var geotag: CLLocationCoordinate2D?
+        
+        if let geotagDictionary = dictionary[Post.geotagKey] as? [String: Any],
+            let latitude = geotagDictionary["latitude"] as? Double,
+            let longitude = geotagDictionary["longitude"] as? Double {
+            
+            geotag = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        } else {
+            geotag = nil
+        }
+        
         self.mediaURL = mediaURL
         self.mediaType = mediaType
         self.ratio = dictionary[Post.ratioKey] as? CGFloat
@@ -41,6 +49,7 @@ class Post {
         self.timestamp = Date(timeIntervalSince1970: timestampTimeInterval)
         self.comments = captionDictionaries.compactMap({ Comment(dictionary: $0) })
         self.id = id
+        
     }
     
     var dictionaryRepresentation: [String : Any] {
@@ -48,7 +57,8 @@ class Post {
                 Post.mediaTypeKey: mediaType.rawValue,
                 Post.commentsKey: comments.map({ $0.dictionaryRepresentation }),
                 Post.authorKey: author.dictionaryRepresentation,
-                Post.timestampKey: timestamp.timeIntervalSince1970]
+                Post.timestampKey: timestamp.timeIntervalSince1970,
+                Post.geotagKey: geotag]
         
         guard let ratio = self.ratio else { return dict }
         
@@ -64,6 +74,8 @@ class Post {
     var comments: [Comment]
     var id: String?
     var ratio: CGFloat?
+    var geotag: CLLocationCoordinate2D?
+    
     
     var title: String? {
         return comments.first?.text
@@ -76,4 +88,6 @@ class Post {
     static private let commentsKey = "comments"
     static private let timestampKey = "timestamp"
     static private let idKey = "id"
+    static private let geotagKey = "geotag"
+
 }

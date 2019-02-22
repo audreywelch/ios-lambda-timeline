@@ -71,10 +71,13 @@ class ImagePostDetailTableViewController: UITableViewController {
         let audioCommentAction = UIAlertAction(title: "Audio Comment", style: .default) { (_) in
 
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let recordViewController = storyboard.instantiateViewController(withIdentifier: "RecordViewController")
+            let recordViewController = storyboard.instantiateViewController(withIdentifier: "RecordViewController") as! RecordViewController
             
             recordViewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            recordViewController.post = self.post
             self.present(recordViewController, animated: true, completion: nil)
+            
+            self.tableView.reloadData()
             
         }
         

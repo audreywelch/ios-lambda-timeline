@@ -104,7 +104,39 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WRz-lg-pQU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1216.8" y="108.39580209895054"/>
+            <point key="canvasLocation" x="1188" y="108"/>
+        </scene>
+        <!--Geo Tags View Controller-->
+        <scene sceneID="G7B-qK-cBo">
+            <objects>
+                <viewController id="ac7-uJ-QMC" customClass="GeoTagsViewController" customModule="LambdaTimeline" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Iex-Mv-Td4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="U2o-ml-nDG">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ac7-uJ-QMC" id="Noq-Px-SFm"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="U2o-ml-nDG" firstAttribute="leading" secondItem="xIu-JV-4e8" secondAttribute="leading" id="Kic-EN-KLT"/>
+                            <constraint firstItem="xIu-JV-4e8" firstAttribute="bottom" secondItem="U2o-ml-nDG" secondAttribute="bottom" id="RhP-No-kdg"/>
+                            <constraint firstItem="xIu-JV-4e8" firstAttribute="trailing" secondItem="U2o-ml-nDG" secondAttribute="trailing" id="gcE-pP-xfH"/>
+                            <constraint firstItem="U2o-ml-nDG" firstAttribute="top" secondItem="xIu-JV-4e8" secondAttribute="top" id="ogp-90-Rn9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xIu-JV-4e8"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="U2o-ml-nDG" id="eOZ-U3-BUu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nqs-i8-e7j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1188" y="784"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="h2f-i2-cXI">
@@ -179,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t2q-zy-mz1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2670" y="-196"/>
+            <point key="canvasLocation" x="1969" y="465"/>
         </scene>
         <!--Title-->
         <scene sceneID="kP9-yp-I8H">
@@ -377,7 +409,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XXa-A2-VJT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1968.8" y="-195.6521739130435"/>
+            <point key="canvasLocation" x="1969" y="-218"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gdW-Je-ais">
@@ -395,7 +427,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GFJ-OO-MVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="277.60000000000002" y="108.39580209895054"/>
+            <point key="canvasLocation" x="422" y="107"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="O74-ZV-TrY">
@@ -432,7 +464,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xA4-1f-Wlf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-450.39999999999998" y="107.49625187406298"/>
+            <point key="canvasLocation" x="-254" y="107"/>
         </scene>
         <!--Title-->
         <scene sceneID="9zi-Aq-zJI">
@@ -585,7 +617,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CdL-Y3-4ej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1968.8" y="464.6176911544228"/>
+            <point key="canvasLocation" x="2663" y="108"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="ZKZ-d9-5zY">
@@ -596,7 +628,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fjl-2E-d7w">
-                                <rect key="frame" x="20" y="258.5" width="335" height="150"/>
+                                <rect key="frame" x="20" y="239.5" width="335" height="188"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j57-eg-Bd1">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="36"/>
@@ -637,17 +669,20 @@
                                             <constraint firstItem="Qfx-pz-UYx" firstAttribute="width" secondItem="1Ry-bz-nkb" secondAttribute="width" id="FZO-e7-5ga"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQw-pz-H2i">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Give your audio comment a title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hid-Kk-xHq">
                                         <rect key="frame" x="0.0" y="120" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQw-pz-H2i">
+                                        <rect key="frame" x="0.0" y="158" width="335" height="30"/>
                                         <state key="normal" title="Add Comment"/>
                                         <connections>
                                             <action selector="addCommentButton:" destination="nd8-uk-zUu" eventType="touchUpInside" id="xH5-hY-D1W"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="Ymn-47-kHr" firstAttribute="top" secondItem="xG6-bC-0dG" secondAttribute="bottom" constant="16" id="Zde-jV-R0h"/>
-                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uk0-Ac-iQ6">
                                 <rect key="frame" x="163.5" y="617" width="48" height="30"/>
@@ -674,11 +709,12 @@
                         <outlet property="recordButton" destination="j57-eg-Bd1" id="0fm-Iq-7Yn"/>
                         <outlet property="remainingTimeLabel" destination="Qfx-pz-UYx" id="c3r-kz-LqG"/>
                         <outlet property="timerSlider" destination="Pxc-cM-tKi" id="Dpl-ea-JWX"/>
+                        <outlet property="titleTextField" destination="hid-Kk-xHq" id="hNg-rK-mfE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cdA-mo-fTE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2623" y="465"/>
+            <point key="canvasLocation" x="3334" y="107"/>
         </scene>
     </scenes>
     <resources>
